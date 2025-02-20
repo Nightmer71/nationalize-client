@@ -1,0 +1,42 @@
+warning: in the working copy of 'src/main/java/nationalize/Nationality.java', LF will be replaced by CRLF the next time Git touches it
+[1mdiff --git a/src/main/java/nationalize/Nationality.java b/src/main/java/nationalize/Nationality.java[m
+[1mindex 25d0894..f60a87e 100644[m
+[1m--- a/src/main/java/nationalize/Nationality.java[m
+[1m+++ b/src/main/java/nationalize/Nationality.java[m
+[36m@@ -4,6 +4,9 @@[m [mimport com.google.gson.annotations.SerializedName;[m
+ [m
+ import java.util.List;[m
+ [m
+[32m+[m[32mimport org.apache.commons.lang3.builder.ReflectionToStringBuilder;[m
+[32m+[m[32mimport org.apache.commons.lang3.builder.ToStringStyle;[m
+[32m+[m
+ public class Nationality {[m
+ [m
+     private long count;[m
+[36m@@ -16,9 +19,13 @@[m [mpublic class Nationality {[m
+         this.count = count;[m
+         this.name = name;[m
+         this.countries = countries;[m
+[31m-    }[m
+ [m
+[32m+[m[32m    }[m
+ [m
+[32m+[m[32m    @Override[m
+[32m+[m[32m    public String toString() {[m
+[32m+[m[32m        return ReflectionToStringBuilder.toString(this, ToStringStyle.NO_CLASS_NAME_STYLE);[m
+[32m+[m[32m    }[m
+ [m
+     public long getCount() {[m
+         return count;[m
+[36m@@ -54,6 +61,11 @@[m [mpublic class Nationality {[m
+             this.probability = probability;[m
+         }[m
+ [m
+[32m+[m[32m        @Override[m
+[32m+[m[32m        public String toString() {[m
+[32m+[m[32m            return ReflectionToStringBuilder.toString(this, ToStringStyle.NO_CLASS_NAME_STYLE);[m
+[32m+[m[32m        }[m
+[32m+[m
+         public String getCountryId() {[m
+             return countryId;[m
+         }[m
